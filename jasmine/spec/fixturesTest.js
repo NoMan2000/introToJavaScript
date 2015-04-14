@@ -1,4 +1,4 @@
-/* global describe it expect readFixtures MouseEvent setFixtures beforeEach loadFixtures jasmine*/
+/* global describe it expect readFixtures MouseEvent setFixtures beforeEach loadFixtures CustomEvent jasmine*/
 
 jasmine.getFixtures().fixturesPath = 'fixtures';
 describe("Fixtures", function(){
@@ -51,7 +51,6 @@ describe("Fixtures", function(){
        });
        
        it("Can be more terse to use jQuery", function() {
-        debugger;
         var button = $("button").eq(0);
         $(button).on('click', function(e) {
            e.preventDefault();
@@ -62,7 +61,6 @@ describe("Fixtures", function(){
        });
        
        it("Can trigger custom events", function(){
-        // debugger;
         var mainH1 = document.getElementsByClassName('h1Begin')[0];
         
         document.addEventListener("testEvent", function(e) {
