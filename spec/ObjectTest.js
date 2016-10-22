@@ -3,7 +3,7 @@ describe("variables", function() {
     var variable,
       truthy,
       falsy;
-  
+
     beforeEach(function() {
       variable = Object.create(Variable);
       truthy = Object.create(Truthiness);
@@ -19,7 +19,7 @@ describe("variables", function() {
         it("Creates a global variable on the window object when the keyword is not used", function() {
             expect(globalVariable).toEqual(window.globalVariable);
         });
-        
+
         it("Does not create a global Variable when using the var keyword", function() {
             var nonGlobalPrivate = nonGlobalPrivate ? nonGlobalPrivate : null;
             expect(nonGlobalPrivate).toBe(null);
@@ -39,10 +39,10 @@ describe("variables", function() {
           expect(truthy.trueObj).toBeTruthy();
         });
         it("Thinks a function is truthy", function(){
-          expect(truthy.trueFunction).toBeTruthy();          
+          expect(truthy.trueFunction).toBeTruthy();
         });
     });
-    
+
     describe("This is about the conditional operators in Javascript", function(){
         it("Thinks Five is Greater Than Four", function(){
           var x;
@@ -80,24 +80,24 @@ describe("variables", function() {
           expect(x).toBe(true);
           x = typeof y === 'number' ? true: false;
           expect(x).toBe(false);
-          
+
         });
         it("Thinks the second argument is called if the condition tested is false", function(){
           var x = 0 ? true: false;
-          expect(x).toBe(false);          
+          expect(x).toBe(false);
         });
         it("Thinks the second argument is called if the condition tested is false", function(){
-          var x = 12 > 13 ? true : false;
+          var x = 12 > 13;
           expect(x).toBe(false);
-                    
+
         });
-        
+
     });
 
     describe("This is a basic demonstration of scope", function() {
        it("contains spec with an expectation", function() {
             expect(true).toBe(true);
-        }); 
+        });
         it("Should not expose the private variable private", function() {
             expect(variable.private).toBe(undefined);
             expect(variable.private).toBeUndefined();
@@ -125,9 +125,9 @@ describe("variables", function() {
           expect(variable.postProperty).toBe("better");
        });
     });
-    
 
-  
 
-  
+
+
+
 });
