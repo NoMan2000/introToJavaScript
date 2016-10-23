@@ -19,14 +19,14 @@ describe("True / False", function() {
         });
         it("Thinks a function is truthy", function() {
           var x = function x(){};
-          expect(x).toBeTruthy();          
+          expect(x).toBeTruthy();
         });
         it("Thinks an empty array is truthy", function() {
           var x = [];
           expect(x).toBeTruthy();
         });
     });
-    describe("This is all about the falsy nature of JavaScript", function() {
+    describe("Falsy are values that can be coerced into being false, but fail strict equality checks", function() {
        it("Thinks that false equals false", function() {
           var x = false;
           expect(x).toBe(false);
@@ -42,6 +42,6 @@ describe("True / False", function() {
           expect(x).toBe('');
           expect(x).toBeFalsy();
        });
-       
+
     });
 });
