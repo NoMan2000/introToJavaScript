@@ -59,5 +59,30 @@ describe("A description of allowed and then good variable names.", function() {
             };
             expect(obj["[Hey]"]).toEqual("There");
         });
+        /**
+         * Variable hoisting is what happens if you use the var keyword anywhere in the function, or if you
+         * use a function without var.  It gets 'hoisted' to
+         * the top of the function.
+         */
+        it("Can 'hoist' a function value", function () {
+            var x;
+            x = getName();
+            function getName() {
+                return "Bob";
+            }
+
+            expect(x).toEqual("Bob");
+        });
+        /**
+         * The only part of this variable that gets 'hoisted' up is the var x portion, the assignment
+         * does not occur yet.  So attempting to use X will result in it being undefined.
+         */
+        it("Can cause unexpected behavior when dealing with variables", function () {
+            expect(x).toBeUndefined();
+            var x = 10;
+            expect(x).toEqual(10);
+        });
+
+
     });
 });
