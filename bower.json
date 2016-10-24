@@ -1,0 +1,26 @@
+{
+  "name": "JavaScriptTests",
+  "description": "An introduction to the basics of JavaScript using TDD",
+  "main": "app.js",
+  "authors": [
+    "Michael Soileau <webart.video@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Learning",
+    "Introduction"
+  ],
+  "homepage": "https://github.com/NoMan2000/introToJavaScript",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jasmine-core": "jasmine#^2.5.2",
+    "jasmine-jquery": "^2.1.1"
+  }
+}
