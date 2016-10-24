@@ -26,9 +26,5 @@ JavaScript is composed of two types of objects.
 2. `NULL` means that a variable has been declared, but has not had any value assigned to it.  `var x;` would declare that x exists, but it would not give it any value.  The value would be null.  `y;` would be undefined, since there is no `var` declaration before it.  This will throw an error, so you have to check this by using the `typeof` language construct.  `typeof thing` will show `undefined`.
 3. A primitive type will not be strictly equal to a string created with a Constructor.  Also, the typeof check will fail for a string created with a constructor.  It is also unnecessarily verbose.  For this reason, it is advised to avoid using the Constructor version of creating primitive types.
 
-## Strings
-
-- Strings are one of the most common primitive datatypes that JavaScript deals with.
-
 
  

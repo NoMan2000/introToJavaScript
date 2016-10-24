@@ -70,6 +70,12 @@ describe("An array is a placeholder for sequential data in JavaScript.  JavaScri
         expect(copyHey[0]).toEqual('hey');
         expect(copyHey.length).toEqual(1);
         expect(arr.indexOf('hey')).toEqual(heyLocation); // Note that "hey" is still in the original element.
-    })
+    });
+
+    it("Can convert from an array to a string", function () {
+        var arr = [1, 2, 3],
+            string = arr.join(',');
+        expect(string.length).toEqual(5);
+    });
 
 });

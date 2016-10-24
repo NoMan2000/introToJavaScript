@@ -14,7 +14,32 @@ describe("JSON is a data format meant to share information between servers and c
         expect(parse.name).toEqual("Bob");
     });
 
-    it("Can perform a special parsing operation", function () {
+
+    it("Can perform a special operation to transform or remove values", function () {
+        var obj = {
+            one: 1,
+            innerObj: {
+                two: 2,
+                four: 4
+            },
+            two: 2,
+            three: 3,
+            four: 4
+        },
+            b,
+            json = JSON.stringify(obj);
+        /**
+         * Even though it says differently in the documentation, returning undefined or not returning a value at all
+         * can cause the entire object to become undefined.
+         */
+        b = JSON.parse(json, function (name, value) {
+            if (value % 2 === 0) {
+                return -value;
+            }
+            return value;
+        });
+        expect(b.two).toEqual(-2);
+
 
     });
 

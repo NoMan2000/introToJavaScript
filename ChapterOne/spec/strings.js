@@ -67,4 +67,12 @@ describe("How Strings work and the methods available", function () {
         expect(stringOne).toEqual('1');
         expect(stringTwo).toEqual('1');
     });
+
+    it("Can convert a string to an array", function () {
+        var string = 'one two three four',
+            arr = string.split(' ');
+        expect(arr[0]).toEqual('one');
+        expect(arr.length).toEqual(4);
+
+    });
 });
