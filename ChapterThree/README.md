@@ -48,3 +48,20 @@
 
 	    for (;;){}
 	    
+- The `continue` keyword will make the loop skip the current iteration, but continue to evaluate the expression.
+- The `break` keyword will exit the expression.
+- A label can be used to state where an expression should continue or break to, if multiple loops are being used.    
+## While Loops
+
+- While loops are the second most common type of loop that you will see.
+- While loops are more commonly used when you do not know the condition that will halt execution ahead of time.
+- While loops require manually checking the condition that needs to be exited, either by assigning a value that will make the condition in the while statement false, or by using the `break` keyword to exit the loop.
+
+## Do-while loops
+
+- Do-while loops are different than other loop structures because they terminate with a semi-colon and the comparison condition is at the end.
+- All do-while loops will run at least once, which makes them ideal for executing code like generating a unique value and testing that value.
+
+## ForEach Loops
+- ForEach loops are very terse and easy to read, but they only work on true arrays.  There are many `array-like` structures in the DOM, which are values that have a length property but do not have JavaScript methods or properties.
+- When dealing with arrays, the forEach loop is looked up as inferior to other functional control structures like `filter` `map` and `reduce`.  Nonetheless, there are certain conditions where a loop works where none of the others do, particularly when you need to transform an object and not an array, or other non-standard uses.

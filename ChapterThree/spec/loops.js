@@ -1,6 +1,6 @@
 /* global describe beforeEach expect it */
 describe("Looping structures: While, For, Do-While, ForEach", function () {
-    it("Can loop over an array", function () {
+    it("Can loop over an array with the for loop", function () {
         var arr = ['one', 2, '3'],
             testArray = [];
         // The first value is known as the initializer, traditionally the character i is used.
@@ -34,6 +34,33 @@ describe("Looping structures: While, For, Do-While, ForEach", function () {
         }
         expect(testArray).toContain(0);
         expect(testArray).not.toContain(1);
+    });
+
+    /**
+     * This is very rare to actually see.  I have yet to see it in production code.
+     * This is something you see more in SQL languages, which do not have certain data structures like
+     * objects and arrays and require some creative thinking to overcome the limitations of not having those structures.
+     */
+    it("Can use the label construct to only exit a portion of a loop", function () {
+        var i = 0,
+            j = 0,
+            iArr = [],
+            jArr = [];
+        firstLoop:
+            for (; i < 3; i += 1) {
+                iArr.push(i);
+                loopTwo:
+                    for (; j < 2; j += 1) {
+                        if (j === 1) {
+                            continue firstLoop;
+                        }
+                        jArr.push(j);
+                    }
+
+            }
+        expect(iArr).toContain(2);
+        expect(jArr).toContain(0);
+        expect(jArr).not.toContain(1);
     });
 
     /**
