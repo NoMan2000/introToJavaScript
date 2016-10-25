@@ -73,5 +73,33 @@ describe("Show how the Number primitive works and how Math is used", function ()
             var result = Math.ceil(3.999);
             expect(result).toBe(4);
         });
+
+        it("Can perform short-hand mathematical operations", function () {
+            var a = 1;
+            a++; // Same as a = a + 1
+            expect(a).toBe(1);
+            a += 1;
+            expect(a).toBe(2);
+            a--; // Same as a = a - 1
+            expect(a).toBe(1);
+            a -= 1;
+            expect(a).toBe(0);
+            a += 3; // same as a = a + 3
+            expect(a).toBe(3);
+            a *= 3; // same as a = a * 3
+            expect(a).toBe(9);
+            a /= 3; // same as a = a / 3
+            expect(a).toBe(3);
+        });
+
+        it("Can perform mathematical comparisons", function () {
+            expect(4 < 5).toBe(true);
+            expect(5 > 4).toBe(true);
+            expect(5 == 5).toBe(true);
+            expect(5 === 5).toBe(true);
+            expect(4 <= 5).toBe(true);
+            expect(5 >= 5).toBe(true);
+        });
+
     });
 });

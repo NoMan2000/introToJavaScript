@@ -86,7 +86,7 @@ describe("Conditionals in JavaScript", function () {
                 expect(conditional).toBe(true);
             });
 
-            it("Can use bad fall-through to chain side-effects", function () {
+            it("Can use bad fallthrough to chain side-effects", function () {
                 var x = 2,
                     conditionalOne = false,
                     conditionalTwo = false;
