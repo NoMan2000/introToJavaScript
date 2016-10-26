@@ -67,12 +67,35 @@
                     <option value="split">split</option>
                 </select>
             </div>
-
-
             <input type="submit" class="btn btn-primary" value="Check String values">
         </form>
     </section>
 
+    <section style="margin-top:2rem;">
+        <form action="" id="numberForm">
+            <fieldset>
+                <legend>Numbers</legend>
+            </fieldset>
+            <div class="hide alert alert-danger" id="errorHolderNumber"></div>
+            <div class="hide alert alert-success" id="successHolderNumber"></div>
+            <div class="form-group">
+                <label for="numberMod">
+                    What value will x hold in the equation <code>var x = 3 % 2;</code>?
+                </label>
+                <input class="form-control" type="number" name="numberMod" id="numberMod" required>
+            </div>
+
+            <label for="numberFloor">What is the Math method that will turn 3.999 to 3? (only one)</label>
+            <div class="form-group">
+                <select class="form-control" size="3" name="numberFloor" id="numberFloor" required>
+                    <option value="pow">pow</option>
+                    <option value="floor">floor</option>
+                    <option value="ceil">ceil</option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Check Number values">
+        </form>
+    </section>
 
 </section>
 <script src="/bower_components/jquery/dist/jquery.js"></script>

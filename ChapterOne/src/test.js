@@ -110,6 +110,36 @@
                 successMessage += "You have the correct answer for splitting a string<br/>";
             }
         },
+        checkNumberMod = function checkNumberMod() {
+            var $el = $("#numberMod"),
+                stringVal = Number($el.val()),
+                $parent = $el.parent(".form-group"),
+                hasError;
+            if (hasError = stringVal !== 1) {
+                errMessage += 'Incorrect value for the modulus<br/>';
+            }
+            if (hasError) {
+                $parent.addClass('has-error');
+            }
+            if (!hasError) {
+                successMessage += "You have the correct value for the modulus operation<br/>";
+            }
+        },
+        checkFloor = function checkFloor() {
+            var $el = $("#numberFloor"),
+                val = $el.val(),
+                $parent = $el.parent('.form-group'),
+                hasError;
+            if (hasError = val !== 'floor') {
+                errMessage += "<hr>You have the incorrect answer for converting 3.999 to 4<br/>";
+            }
+            if (hasError) {
+                $parent.addClass('has-error');
+            }
+            if (!hasError) {
+                successMessage += "You have the correct answer for rounding down.<br/>";
+            }
+        },
         showHideSuccessAndFail = function showHideSuccessAndFail($errorHolder, $successHolder) {
             if (errMessage) {
                 showError($errorHolder);
@@ -122,6 +152,7 @@
             hideError($errorHolder);
             hideSuccessMessage($successHolder);
         };
+
     $('#variableForm').on('submit', function (e) {
         e.preventDefault(); // prevent the form from submitting.
         var $errorHolder = $("#errorHolder"),
@@ -139,6 +170,16 @@
         hideAll($errorHolder, $successHolder);
         checkStringIndex();
         checkSplit();
+        showHideSuccessAndFail($errorHolder, $successHolder);
+    });
+
+    $("#numberForm").on('submit', function (e) {
+        e.preventDefault();
+        var $errorHolder = $("#errorHolderNumber"),
+            $successHolder = $("#successHolderNumber");
+        hideAll($errorHolder, $successHolder);
+        checkNumberMod();
+        checkFloor();
         showHideSuccessAndFail($errorHolder, $successHolder);
     });
 }());

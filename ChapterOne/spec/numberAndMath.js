@@ -37,7 +37,9 @@ describe("Show how the Number primitive works and how Math is used", function ()
             var result = 3 % 2;
             expect(result).toEqual(1);
         });
-
+        /**
+         * JavaScript is very imprecise with numbers
+         */
         it("Gives unexpected results without precision or fixed operations", function () {
             var result = .1 + .2;
             expect(result).not.toEqual(.3);
