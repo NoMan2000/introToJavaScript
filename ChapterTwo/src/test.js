@@ -1,0 +1,61 @@
+(function testOne() {
+    "use strict";
+    var errMessage = '',
+        successMessage = '',
+        showError = function showError($errorHelper) {
+            $errorHelper.removeClass('hide').html(errMessage);
+        },
+        hideError = function hideError($errorHelper) {
+            $errorHelper.addClass('hide').empty();
+            $(".has-error").removeClass('has-error');
+            errMessage = '';
+        },
+        showSuccessMessage = function showSuccessMessage($successHolder) {
+            $successHolder.removeClass('hide').html(successMessage);
+        },
+        hideSuccessMessage = function hideSuccessMessage($successHolder) {
+            $successHolder.addClass('hide').empty();
+            $(".has-success").removeClass('has-success');
+            successMessage = '';
+        },
+        inArray = function (array, value) {
+            return array.indexOf(value) !== -1;
+        },
+        checkPush = function checkPush() {
+            var $el = $("#arrayPush"),
+                val = $el.val(),
+                $parent = $el.parent('.form-group'),
+                hasError;
+            if (hasError = val !== 'floor') {
+                errMessage += "<hr>You have the incorrect answer for converting 3.999 to 4<br/>";
+            }
+            if (hasError) {
+                $parent.addClass('has-error');
+            }
+            if (!hasError) {
+                successMessage += "You have the correct answer for rounding down.<br/>";
+            }
+        },
+        showHideSuccessAndFail = function showHideSuccessAndFail($errorHolder, $successHolder) {
+            if (errMessage) {
+                showError($errorHolder);
+            }
+            if (successMessage) {
+                showSuccessMessage($successHolder);
+            }
+        },
+        hideAll = function hideAll($errorHolder, $successHolder) {
+            hideError($errorHolder);
+            hideSuccessMessage($successHolder);
+        };
+
+    $('#variableForm').on('submit', function (e) {
+        e.preventDefault();
+        var $errorHolder = $("#errorHolderArray"),
+            $successHolder = $("#successHolderArray");
+        hideAll($errorHolder, $successHolder);
+        checkPush();
+        showHideSuccessAndFail($errorHolder, $successHolder);
+    });
+
+}());
