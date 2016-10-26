@@ -8,11 +8,17 @@
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
 <body>
 <section class="container">
-    <div class="hide alert alert-danger" id="errorHolder"></div>
-    <div class="hide alert alert-success" id="successHolder"></div>
-    <form action="" id="variableForm">
-        <div class="form-group">
-            <label for="variableName">What are valid variable name? (Control/command click to select multiple values)</label>
+    <section>
+
+        <form action="" id="variableForm">
+            <fieldset>
+                <legend>Variables</legend>
+            </fieldset>
+            <div class="hide alert alert-danger" id="errorHolder"></div>
+            <div class="hide alert alert-success" id="successHolder"></div>
+            <div class="form-group">
+                <label for="variableName">What are valid variable name? (Control/command click to select multiple
+                    values)</label>
                 <select class="form-control" size="5" name="variableName" id="variableName" multiple required>
                     <option value="1Name">1Name</option>
                     <option value="$name">$name</option>
@@ -20,9 +26,54 @@
                     <option value="name?">name?</option>
                     <option value="name_$">name_$</option>
                 </select>
-        </div>
-        <input type="submit" class="btn btn-primary" value="Check Variable Names">
-    </form>
+            </div>
+            <div class="form-group">
+                <label for="objectAccess">How can you select an object's property? (multiple)</label>
+                <pre><code>
+  var obj = {
+      name: "Bill"
+  };
+                </code></pre>
+                <select class="form-control" size="3" name="objectAccess" id="objectAccess" multiple required>
+                    <option value="dotNotation">obj.name</option>
+                    <option value="noQuotes">obj[name]</option>
+                    <option value="quotes">obj['name']</option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Check Variable Names">
+        </form>
+    </section>
+
+    <section style="margin-top:2rem;">
+        <form action="" id="stringForm">
+            <fieldset>
+                <legend>Strings</legend>
+            </fieldset>
+            <div class="hide alert alert-danger" id="errorHolderString"></div>
+            <div class="hide alert alert-success" id="successHolderString"></div>
+            <div class="form-group">
+                <label for="stringIndexOf">
+                    What value will <code> "time".indexOf('i');</code> result in?
+                </label>
+                <input class="form-control" type="number" name="stringIndexOf" id="stringIndexOf" required>
+            </div>
+
+            <label for="stringSplit">What is the method to turn a string into an array? (only one)</label>
+            <div class="form-group">
+                <select class="form-control" size="4" name="stringSplit" id="stringSplit" required>
+                    <option value="join">join</option>
+                    <option value="implode">implode</option>
+                    <option value="explode">explode</option>
+                    <option value="split">split</option>
+                </select>
+            </div>
+
+
+            <input type="submit" class="btn btn-primary" value="Check String values">
+        </form>
+    </section>
+
+
 </section>
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
