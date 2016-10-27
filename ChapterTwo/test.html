@@ -47,56 +47,7 @@
             <input type="submit" class="btn btn-primary" value="Check Array Answers Names">
         </form>
     </section>
-
-    <section style="margin-top:2rem;">
-        <form action="" id="stringForm">
-            <fieldset>
-                <legend>Strings</legend>
-            </fieldset>
-            <div class="hide alert alert-danger" id="errorHolderString"></div>
-            <div class="hide alert alert-success" id="successHolderString"></div>
-            <div class="form-group">
-                <label for="stringIndexOf">
-                    What value will <code> "time".indexOf('i');</code> result in?
-                </label>
-                <input class="form-control" type="number" name="stringIndexOf" id="stringIndexOf" required>
-            </div>
-
-            <label for="stringSplit">What is the method to turn a string into an array? (only one)</label>
-            <div class="form-group">
-                <select class="form-control" size="4" name="stringSplit" id="stringSplit" required>
-                    <option value="join">join</option>
-                    <option value="implode">implode</option>
-                    <option value="explode">explode</option>
-                    <option value="split">split</option>
-                </select>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Check String values">
-        </form>
-    </section>
-
-    <section style="margin-top:2rem;">
-        <form action="" id="numberForm">
-            <fieldset>
-                <legend>Functions</legend>
-            </fieldset>
-            <div class="hide alert alert-danger" id="errorHolderNumber"></div>
-            <div class="hide alert alert-success" id="successHolderNumber"></div>
-            <div class="form-group">
-                <label for="functionReturn">
-                    What value will x hold in this example?
-                </label>
-                <pre><code>
-  var setGreeting = function setGreeting(name) {
-     return "Hello " + name;
-  };
-  x = setGreeting("Bob");
-                </code></pre>
-                <input class="form-control" type="text" name="functionReturn" id="functionReturn" required>
-            </div>
-        </form>
-    </section>
-
+    
 </section>
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>

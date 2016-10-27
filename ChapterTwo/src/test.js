@@ -36,6 +36,37 @@
                 successMessage += "You have the correct answer for rounding down.<br/>";
             }
         },
+        checkShift = function checkShift() {
+            var $el = $("#arrShift"),
+                val = $el.val(),
+                $parent = $el.parent('.form-group'),
+                hasError;
+            if (hasError = val !== 'Bill') {
+                errMessage += "<hr>You have the incorrect answer for the shift method<br/>";
+            }
+            if (hasError) {
+                $parent.addClass('has-error');
+            }
+            if (!hasError) {
+                successMessage += "You have the correct answer for the shift method.<br/>";
+            }
+        },
+        checkJoin = function checkJoin() {
+            var $el = $("#arrJoin"),
+                val = $el.val(),
+                $parent = $el.parent('.form-group'),
+                hasError;
+            if (hasError = val !== '"Bill,brand,jim') {
+                errMessage += "<hr>You have the incorrect answer for the join operation.  " +
+                    "Remember there are no spaces added by the operation.<br/>";
+            }
+            if (hasError) {
+                $parent.addClass('has-error');
+            }
+            if (!hasError) {
+                successMessage += "You have the correct answer for the join method.<br/>";
+            }
+        },
         showHideSuccessAndFail = function showHideSuccessAndFail($errorHolder, $successHolder) {
             if (errMessage) {
                 showError($errorHolder);
@@ -55,6 +86,7 @@
             $successHolder = $("#successHolderArray");
         hideAll($errorHolder, $successHolder);
         checkPush();
+        checkShift();
         showHideSuccessAndFail($errorHolder, $successHolder);
     });
 

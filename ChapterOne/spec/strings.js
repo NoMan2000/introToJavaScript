@@ -73,6 +73,39 @@ describe("How Strings work and the methods available", function () {
             arr = string.split(' ');
         expect(arr[0]).toEqual('one');
         expect(arr.length).toEqual(4);
-
     });
+    /**
+     * Trimming whitespace is often used when you have users enter their username or other information
+     * where they may accidentally press the spacebar.
+     * JavaScript has no rTrim or lTrim methods, these are usually added in libraries.
+     */
+    it("Can trim leading whitespace", function () {
+        var whitespace = " This is an example of unnecessary whitespace ";
+        expect(whitespace.trim()).toEqual("This is an example of unnecessary whitespace");
+    });
+
+    /**
+     * String replace will replace either a string or a regular expression.  Regular expressions are covered in
+     * Chapter Two.
+     */
+    it("Can replace a string", function () {
+        var newString = "cat".replace("cat", "dog");
+        expect(newString).toEqual("dog");
+    });
+
+    it("Can do multi-line strings", function () {
+        var string = "One and two " +
+                "three and four",
+            secondString = "One and two \
+                three and four";
+            /* This works because the backslash key will escape the empty space.
+             * It will also add whitespace as part of the string
+             * It is not recommended to do this.
+             * The second string is very fragile, adding one space will make the test fail.
+             */
+        expect(string).toEqual("One and two three and four");
+        expect(secondString).toEqual("One and two                 three and four");
+    });
+
+
 });

@@ -77,7 +77,7 @@ describe("Show how the Number primitive works and how Math is used", function ()
         });
 
         it("Can perform short-hand mathematical operations", function () {
-            var a = 1;
+            var a = 0;
             a++; // Same as a = a + 1
             expect(a).toBe(1);
             a += 1;
