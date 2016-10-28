@@ -78,4 +78,38 @@ describe("An array is a placeholder for sequential data in JavaScript.  JavaScri
         expect(string.length).toEqual(5);
     });
 
+    it("Can use an indeterminate length of arguments", function () {
+        var getArguments = function () {
+            return arguments.length;
+        },
+            /**
+             * The variable arguments is a reserved variable that is known as a
+             * "psuedo-array" or "array-like" variable, which is not an array but any object that has a length property.
+             * @return {number}
+             */
+            sumAny = function () {
+                var sumTotal = 0;
+                for (var i = 0; i < arguments.length; i += 1) {
+                    sumTotal += arguments[i];
+                }
+                return sumTotal;
+            },
+            /**
+             * Remember that the slice method will return a new array,
+             * using call will make the "this" pseudo-variable of the new array equal to what is passed in.
+             * This is how you can create an array from a array-like object.
+             * The advantage is that you gain access to all the methods of an array.
+             * @return {number}
+             */
+            sumAnyPrototype = function () {
+                var arr = [].slice.call(arguments);
+                return arr.reduce(function flattenSum(previousValue, currentValue) {
+                    return previousValue += currentValue;
+                }, 0);
+            };
+        expect(getArguments(1, 2, 3)).toEqual(3);
+        expect(sumAny(1, 2, 3, 4, 5, 6)).toEqual(21);
+        expect(sumAnyPrototype(1, 2, 3, 4, 5, 6)).toEqual(21);
+    });
+
 });
