@@ -2,49 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chapter Two: Test</title>
+    <title>Chapter Three: Test</title>
+    <link rel="shortcut icon" type="image/png" href="/bower_components/jasmine/images/jasmine_favicon.png">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
 </head>
-<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
 <body>
 <section class="container">
     <section>
 
-        <form action="" id="arrayForm">
+        <form action="" id="comparisonForm">
             <fieldset>
-                <legend>Arrays</legend>
+                <legend>Comparisons</legend>
             </fieldset>
             <div class="hide alert alert-danger" id="errorHolderArray"></div>
             <div class="hide alert alert-success" id="successHolderArray"></div>
             <div class="form-group">
-                <label for="arrayPush">What method adds an element to the <b>end</b> of an array? (one)</label>
-                <select class="form-control" size="5" name="arrayPush" id="arrayPush" required>
-                    <option value="shift">shift</option>
-                    <option value="pop">pop</option>
-                    <option value="unshift">unshift</option>
-                    <option value="push">push</option>
-                    <option value="concat">concat</option>
-                </select>
+                <label>What is the value of z after the comparison?</label>
+<pre>
+    <code>
+    var x = 2,
+        y = 3,
+        z;
+    if (x > 3) {
+        z = true;
+    } else {
+        z = false;
+    }
+    </code>
+</pre>
+                <div class="radio">
+                    <label for="zTrue">
+                        <input type="radio" class="form-control" name="comparisonFalse" id="zTrue" value="true">
+                    </label>
+                    <span>true</span>
+                </div>
+                <div class="radio">
+                    <label for="zFalse">
+                        <input type="radio" class="form-control" name="comparisonFalse" id="zFalse" value="false">
+                    </label>
+                    <span>false</span>
+                </div>
+                <div class="radio">
+                    <label for="zUndefined">
+                        <input type="radio" class="form-control" name="comparisonFalse" id="zUndefined" value="undefined">
+                    </label>
+                    <span>undefined</span>
+                </div>
             </div>
             <div class="form-group">
-                <label for="arrShift">What is the value of x after the shift operation?</label>
-                <pre><code>
-  var arr = ["Bill", 'brand', 'jim'],
-     x = arr.shift();
-                </code></pre>
-                <input type="text" class="form-control" required name="arrShift" id="arrShift">
+                <label for="orFalse">What is the value of x after the logical or comparison?</label>
+<pre><code>
+var x = 0;
+x = x || 1;
+</code></pre>
+                <input type="number" class="form-control" required name="orFalse" id="orFalse">
             </div>
-
-            <div class="form-group">
-                <label for="arrJoin">What is the value of x after the join operation?</label>
-                <pre><code>
-  var arr = ["Bill", 'brand', 'jim'],
-     x = arr.join(',');
-                </code></pre>
-                <input type="text" class="form-control" required name="arrJoin" id="arrJoin">
-            </div>
-
-            <input type="submit" class="btn btn-primary" value="Check Array Answers Names">
+            <input type="submit" class="btn btn-primary" value="Check Comparison Answers">
         </form>
     </section>
 

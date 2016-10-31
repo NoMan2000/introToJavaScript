@@ -26,14 +26,14 @@
                 val = $el.val(),
                 $parent = $el.parent('.form-group'),
                 hasError;
-            if (hasError = val !== 'floor') {
-                errMessage += "<hr>You have the incorrect answer for converting 3.999 to 4<br/>";
+            if (hasError = val !== 'push') {
+                errMessage += "<hr>You have the incorrect method for adding a value onto the end of an error<br/>";
             }
             if (hasError) {
                 $parent.addClass('has-error');
             }
             if (!hasError) {
-                successMessage += "You have the correct answer for rounding down.<br/>";
+                successMessage += "You have the correct answer for adding an element to the end of an array.<br/>";
             }
         },
         checkShift = function checkShift() {
@@ -56,7 +56,7 @@
                 val = $el.val(),
                 $parent = $el.parent('.form-group'),
                 hasError;
-            if (hasError = val !== '"Bill,brand,jim') {
+            if (hasError = val !== 'Bill,brand,jim') {
                 errMessage += "<hr>You have the incorrect answer for the join operation.  " +
                     "Remember there are no spaces added by the operation.<br/>";
             }
@@ -80,7 +80,7 @@
             hideSuccessMessage($successHolder);
         };
 
-    $('#variableForm').on('submit', function (e) {
+    $('#arrayForm').on('submit', function (e) {
         e.preventDefault();
         var $errorHolder = $("#errorHolderArray"),
             $successHolder = $("#successHolderArray");
