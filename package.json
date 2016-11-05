@@ -1,7 +1,7 @@
 {
   "name": "JavaScriptTests",
   "version": "1.0.0",
-  "description": "javascript App",
+  "description": "An Introduction to JavaScript Using Behavior Driven-Design",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
