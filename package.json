@@ -11,12 +11,16 @@
     "Learning"
   ],
   "author": "Michael Soileau <webart.video@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NoMan2000/introToJavaScript.git"
+  },
   "license": "ISC",
   "devDependencies": {
-    
+
   },
+
   "dependencies": {
-    "express": "^4.14.0",
-    "jquery": "^3.1.1"
+    "express": "^4.14.0"
   }
 }
