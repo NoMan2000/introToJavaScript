@@ -10,14 +10,12 @@ Python uses what's known as `duck-typing` to understand a value passed in.  Unli
     return gradString;
   }
 
-Python will not check what type of object gets passed in.  There are ways to create `Interfaces` in Python,
-but they are generally rare.  Equivalent Python:
+Python will not check what type of object gets passed in.  There are ways to create `Interfaces` in Python, but they are generally rare.  Equivalent Python:
 
   def get_graduation_date_to_string(yourGraduation)
     return str(yourGraduation.YEAR)
 
-So long as a method exists or property exists, Python will invoke it.  The term `duck-typing` means so long as
-whatever is passed to the method has the method or property the function is invoking,
+So long as a method exists or property exists, Python will invoke it.  The term `duck-typing` means so long as whatever is passed to the method has the method or property the function is invoking,
 Python will not raise an error.
 
 We do not have to specify that we are expecting an object of type Calendar, but we
