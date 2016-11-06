@@ -14,7 +14,10 @@ describe("A demonstration of how methods and properties work.", function() {
         });
 
         it("Can create a basic object and assign a method on it", function() {
-            var obj = {};
+            var obj = {},
+              nameOne,
+              nameTwo,
+              nameThree;
             /**
              * In ES5, JavaScript does not have default parameter options.
              * Using the or symbol || is a common practice to make sure a value does exist.
@@ -23,7 +26,7 @@ describe("A demonstration of how methods and properties work.", function() {
              * @return String
              */
             obj.sayName = function(first, last) {
-                first = first || "Ryan";
+                first = first || "Ryan"; // Lazy Evaluation
                 last = last || "Michael";
                 return "Hello " + first + " " + last;
             };
@@ -32,9 +35,12 @@ describe("A demonstration of how methods and properties work.", function() {
              * The first is no arguments, the second is a one argument permutation, and the final one is a two
              * argument permutation.
              */
-            expect(obj.sayName()).toEqual("Hello Ryan Michael");
-            expect(obj.sayName('Bill')).toEqual("Hello Bill Michael");
-            expect(obj.sayName('john', 'doe')).toEqual("Hello john doe");
+            nameOne = obj.sayName();
+            nameTwo = obj.sayName('Bill');
+            nameThree = obj.sayName('john', 'doe');
+            expect(nameOne).toEqual("Hello Ryan Michael");
+            expect(nameTwo).toEqual("Hello Bill Michael");
+            expect(nameThree).toEqual("Hello john doe");
         });
 
         /**
