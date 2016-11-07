@@ -55,9 +55,9 @@ describe("A description of allowed and then good variable names.", function() {
 
         it("Can access special character names with square brackets, but please never do this", function () {
             var obj = {
-                "[Hey]": 'There'
+                "^[Hey]": 'There'
             };
-            expect(obj["[Hey]"]).toEqual("There");
+            expect(obj["^[Hey]"]).toEqual("There");
         });
         /**
          * Variable hoisting is what happens if you use the var keyword anywhere in the function, or if you

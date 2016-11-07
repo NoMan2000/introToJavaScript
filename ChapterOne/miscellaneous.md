@@ -30,3 +30,21 @@ The equivalent JavaScript:
   }
 
 JavaScript will not throw an error and will return `"undefined"` as a string.
+
+## The Window object
+
+In the browser, trying to create a variable without using the keyword `var` attaches a variable to the global object.  The `use strict` statement is a way of turning that off, and NodeJS does this by default.
+
+## Variables
+
+Literally anything that can vary.  This is opposed to `constants`, which cannot change.
+
+# Scoping
+
+## Lexical Scoping
+
+JavaScript uses `lexical scoping` to understand the `scope` of a value.  `Scope` refers to the `lifetime` and `visibility` of a variable.  `Lexical` refers to each variable being visible at the function level.  Each inner function maintains a reference to variables in the outer function, known as a `closure`.  But variables in the inner scope are not accessible to the outer scope.  It is considered best practice to make your variables as local as possible and to avoid passing around large numbers of references.
+
+## Block Scoping
+
+In ES6, JavaScript introduced the keyword `let`, which creates a block scope.  A block-scoped variable is delimited by a set of braces `{}` instead of by a function scope `function newfunction () {}`

@@ -1,6 +1,5 @@
 /* global describe beforeEach Truthiness Falsiness globalVariable public expect it variables Variable */
 describe("A demonstration of how methods and properties work.", function() {
-
     describe("This is a basic demonstration of creating variables", function(){
         it("Can create a basic object", function createBasicObject() {
             var obj = {};
@@ -126,11 +125,4 @@ describe("A demonstration of how methods and properties work.", function() {
 
         });
     });
-
-
-
-
-
-
-
 });
