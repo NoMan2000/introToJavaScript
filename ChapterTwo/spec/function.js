@@ -9,6 +9,7 @@ describe("Functions are one of the most powerful feature of JavaScript", functio
   };
 
   it("Can return a value passed in", function () {
+        debugger;
         var addFunction = function(a, b) { // parameters
             return Number(a) + Number(b);
         };
@@ -77,6 +78,13 @@ describe("Functions are one of the most powerful feature of JavaScript", functio
         expect(bob.firstName).toEqual('Bobby');
         expect(bill.firstName).toEqual('bob');
 
+    });
+
+    it("Can show how primitive values are assigned by value", function () {
+       var a = 'john';
+       b = a;
+       b = 'bill'; // a will be 'john' and b will be 'bill'
+       expect(a).not.toEqual(b);
     });
 
     it("Can be used to create 'private' variables", function () {
