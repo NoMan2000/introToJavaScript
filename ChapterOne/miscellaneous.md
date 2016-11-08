@@ -1,5 +1,11 @@
 # Miscellaneous Notes
 
+## Reserve
+
+[List of Reserved Words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar)
+
+Languages typically have reserved words that have special meaning to the compiler/interpreter.  These reserved words cannot be used as the names of variables.
+
 ## Dealing with Types
 
 Python uses what's known as `duck-typing` to understand a value passed in.  Unlike Java, that requires an explicit declaration:
@@ -59,7 +65,9 @@ Or they can be written as `function declarations`.
 
 When using `function declarations`, the code is hoisted to the enclosing function, or to the global object (`window`).  This means you can use a function before it's been defined.  The reason for this is because of what's known as `mutually recursive function calls`, where `function a` needs to call `function b`, and `function b` needs to call `function a`.  Since both functions call each other, there needs to be a way to load these functions into memory before they are actually invoked in the code.
 
-Generally, it is recommended to use `function expressions`, since they make the code easier to reason about, although some people like being able to call functions at the top of the code.
+Generally, it is recommended to use `function expressions`, since they make the code easier to reason about, although some people like being able to call functions at the top of the code.  
+
+Any variables declared with `var variable = y`, no matter where they are put in the code, will be `hoisted` to the top of the current function scope.  If they are used before the definition is found, the result will be `undefined`.
 
 # Strings and character arrays.
 
