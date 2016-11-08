@@ -1,9 +1,18 @@
-/* global describe beforeEach expect it */describe("Functions are one of the most powerful feature of JavaScript", function () {
-    it("Can return a value passed in", function () {
-        var addFunction = function(a, b) {
+/* global describe beforeEach expect it */
+describe("Functions are one of the most powerful feature of JavaScript", function () {
+
+  /**
+   * Don't worry if this seems weird.
+   */
+  var cloneObject = function cloneObject(obj) {
+      return JSON.parse(JSON.stringify(obj));
+  };
+
+  it("Can return a value passed in", function () {
+        var addFunction = function(a, b) { // parameters
             return Number(a) + Number(b);
         };
-        expect(addFunction(1, 2)).toEqual(3);
+        expect(addFunction(1, 2)).toEqual(3); // arguments
     });
     /**
      * It's common practice for a function to use an outer value.  Referencing an outer value is known as creating a
@@ -36,7 +45,7 @@
         expect(b.firstName).toEqual("Bob");
         b.firstName = "Bill";
         expect(b.firstName).toEqual("Bill");
-        expect(d.firstName).toEqual("Bill");
+        expect(d.firstName).toEqual("Bill"); // Notice that d.firstName is equal to Bill and not to Bob.
 
         b = a();
         c = a();
@@ -44,7 +53,30 @@
         b.firstName = "Bill";
         expect(b.firstName).toEqual("Bill");
         expect(c.firstName).toEqual("Bob");
-        expect(d.firstName).toEqual("Bob");
+        expect(d.firstName).toEqual("Bob"); // Notice here that d.firstName is equal to Bob and not Bill.
+    });
+
+    it("Can show a demo of cloning an object", function () {
+        var Person = function (firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+        },
+        bob = new Person('bob', 'doe'),
+        bill = bob;
+
+        expect(bob.firstName).toEqual('bob');
+        expect(bill.firstName).toEqual('bob');
+        expect(bill).toBe(bob); // Both bill and bob are the same object.
+
+        bill = cloneObject(bob);
+        expect(bill).not.toBe(bob);
+        expect(bill.firstName).toEqual('bob');
+        expect(bill.lastName).toEqual('doe');
+
+        bob.firstName = 'Bobby';
+        expect(bob.firstName).toEqual('Bobby');
+        expect(bill.firstName).toEqual('bob');
+
     });
 
     it("Can be used to create 'private' variables", function () {
@@ -61,11 +93,14 @@
                 getFirstName = function () {
                     return firstName;
                 },
+
                 setFirstName = function (name) {
                     firstName = name;
+                    return this; // Returning "this" is called "method-chaining" or "fluent modeling".  It requires the new keyword to work properly, hence the instanceof setting above.
                 },
                 setLastName = function (name) {
                     lastName = name;
+                    return this;
                 },
                 getLastName = function () {
                     return lastName;
@@ -77,11 +112,17 @@
                 setLastName: setLastName
             };
         },
-            Bob = new Person();
-        Bob.setFirstName("Bob");
-        Bob.firstName = "Bill";
+            bob = new Person(),
+            jane = Person();
+        bob.setFirstName("Bob");
+        bob.firstName = "Bill";
+
+        jane.setFirstName("Jane")
+          .setLastName('Doe');
         // Note that trying to set the property directly will still result in the version from the setter to be used.
-        expect(Bob.getFirstName()).toEqual("Bob");
+        expect(bob.getFirstName()).toEqual("Bob");
+        expect(jane.getFirstName()).toEqual('Jane');
+        expect(jane.getLastName()).toEqual('Doe');
     });
 
 
