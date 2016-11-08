@@ -4,16 +4,16 @@
 
 Python uses what's known as `duck-typing` to understand a value passed in.  Unlike Java, that requires an explicit declaration:
 
-  public String function getGraduationDateToString(Calendar yourGraduationDate)
-  {
-    String gradString = String.valueOf(yourGraduation.YEAR);
-    return gradString;
-  }
+    public String function getGraduationDateToString(Calendar yourGraduationDate)
+    {
+      String gradString = String.valueOf(yourGraduation.YEAR);
+      return gradString;
+    }
 
 Python will not check what type of object gets passed in.  There are ways to create `Interfaces` in Python, but they are generally rare.  Equivalent Python:
 
-  def get_graduation_date_to_string(yourGraduation)
-    return str(yourGraduation.YEAR)
+    def get_graduation_date_to_string(yourGraduation)
+      return str(yourGraduation.YEAR)
 
 So long as a method exists or property exists, Python will invoke it.  The term `duck-typing` means so long as whatever is passed to the method has the method or property the function is invoking, Python will not raise an error.
 
@@ -23,9 +23,9 @@ If there is no `YEAR` property on the object passed in, Python will throw an err
 
 The equivalent JavaScript:
 
-  function getGraduationDateToString(yourGraduation) {
-    return String(yourGraduation.YEAR);
-  }
+    function getGraduationDateToString(yourGraduation) {
+      return String(yourGraduation.YEAR);
+    }
 
 JavaScript will not throw an error and will return `"undefined"` as a string.
 
@@ -80,18 +80,18 @@ This is why `var x = new String("string");` will look strange in the console, it
 
 These two lines of code are equivalent:
 
-  var x = function () {
-    return "Some value";
-  }
+    var x = function () {
+      return "Some value";
+    }
 
-  var x=function(){return "some value";}
+    var x=function(){return "some value";}
 
 Some languages like Python use whitespace for significant markers.  Because JavaScript can strip white space and not change the meaning, there are `minifiers` that will strip out everything they can to make the code smaller, since JavaScript on the web has to be downloaded, and the smaller the download size the faster the page will load.
 
 # Escape Sequence
 
-`\n` means "New Line."
-`\r` means "carriage return"
-`\t` means 'tab key'
+- `\n` means "New Line."
+- `\r` means "carriage return"
+- `\t` means 'tab key'
 
-There are a few others, but you may occassionally come across these in code.
+There are a few others, but you may occasionally come across these in code.
