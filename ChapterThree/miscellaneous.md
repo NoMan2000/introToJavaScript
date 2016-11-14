@@ -81,3 +81,25 @@ You can also run a forever loop like this:
     for (;;) {
       // This will never end.
     }
+
+If you run a break statement inside of an inner loop, it will not exit the entire loop.  To do that, you must use a label.
+
+    for (var i = 0; i < 100; i += 1) {
+       for (var j = 0; j < 100; j += 1) {
+         break;
+       }
+       console.log("I am still going to be hit");
+    }
+
+The console statement will run 100 times.
+
+    outer:
+    for (var i = 0; i < 100; i += 1) {
+       inner:
+       for (var j = 0; j < 100; j += 1) {
+         break outer;
+       }
+       console.log("I am never going to be hit");
+    }
+
+The console.log statement will never execute.
