@@ -6,6 +6,26 @@
 - Functions can either be directly invoked or invoked with the `new` keyword.  If the `new` keyword is required, then the variable name begins with an uppercase letter.  I.e. `Person = function (firstname){}` instead of `person = function (firstname){}`.
 - JavaScript uses the `this` keyword to reference the current execution context.  Unfortunately, it is confusing, even advanced JavaScript programmers get it wrong.  In ES6, they added a `class` constructor to help make it more similar to other OOP languages.
 - Fortunately, there are numerous JavaScript design patterns like the `module pattern` that make it easier to deal with JavaScript objects than attempting to implement a classic OOP (Object-Oriented Programming) paradigm on a language.  It is beyond the scope of this course to talk about JavaScript design patterns.
+- If the same variable name is used in both the outer scope and the inner scope, then the variable in the inner scope will temporarily `shadow` the variable.  Consider the following two pieces of code.
+```
+var outerVariable = 1,
+  a = function () {
+     var x = outerVariable; // x will equal 1
+  },
+  otherVariable = outerVariable + 1, // otherVariable will equal 2
+
+```
+Because the outer variable is not redeclared in the inner function, it is used.  However in this code:
+```
+var outerVariable = 1,
+  a = function () {
+    var outerVariable = 'new variable';
+    x = outerVariable; // x will equal 'new variable'
+  },
+  otherVariable = outerVariable + 1, // otherVariable will still equal 2, the inner scope has no affect on the outer scope
+```
+
+The value of the first outerVariable is shadowed for as long the a function runs.  When the function is finished, the scope is changed back to the outer scope and the original outerVariable is referred to again.
 
 # Arrays
 

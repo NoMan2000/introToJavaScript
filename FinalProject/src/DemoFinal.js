@@ -5,8 +5,8 @@
             return new Demo();
         }
         var makeBoolean = function makeBoolean(bool) {
-            return Boolean(bool);
-        },
+                return Boolean(bool);
+            },
             roundDown = function roundDown(number) {
                 return Math.floor(Number(number));
             },
@@ -36,30 +36,31 @@
                         return value % 3 === 0;
                     },
                     getBuzz = function getBuzz(value) {
-                    return value % 5 === 0;
+                        return value % 5 === 0;
                     },
-                    getFizzBuzz = function getFizzBuzz(value) {
+                    getFizzAndBuzz = function getFizzAndBuzz(value) {
                         return getFizz(value) && getBuzz(value);
                     };
-                /**
-                 * fizz: [],
-                 buzz: [],
-                 fizzBuzz: [],
-                 numbers: []
-                 */
+
                 obj.fizz = array.filter(function (value) {
-                    return getFizz(value) && !getFizzBuzz(value);
+                    return getFizz(value) && !getFizzAndBuzz(value);
                 });
                 obj.buzz = array.filter(function (value) {
-                    return getBuzz(value) && !getFizzBuzz(value);
+                    return getBuzz(value) && !getFizzAndBuzz(value);
                 });
                 obj.fizzBuzz = array.filter(function (value) {
-                    return getFizzBuzz(value);
+                    return getFizzAndBuzz(value);
                 });
                 obj.numbers = array.filter(function (value) {
                     return !getBuzz(value) && !getFizz(value);
                 });
                 return obj;
+            },
+            sortByLengthAndAlphabet = function (arr) {
+                return arr.sort(function (a, b) {
+                    return a.length - b.length || // sort by length, if equal then
+                        a.localeCompare(b);    // sort by dictionary order, localeCompare for special characters
+                });
             },
             objectProperty = 'demo';
 
@@ -72,7 +73,8 @@
             getNameToUpper: getNameToUpper,
             objectProperty: objectProperty,
             getArray: getArray,
-            getFizzBuzz: getFizzBuzz
+            getFizzBuzz: getFizzBuzz,
+            sortByLengthAndAlphabet: sortByLengthAndAlphabet
         };
     };
     global.Demo = Demo;
