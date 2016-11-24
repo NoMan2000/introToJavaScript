@@ -6,9 +6,40 @@
 
 Languages typically have reserved words that have special meaning to the compiler/interpreter.  These reserved words cannot be used as the names of variables.
 
+## Expression vs. Statement
+
+Often these two terms are used interchangeable, but `any fragment of code that produces a value is an expression`.  For example:
+
+```
+var x = 10 + 22 - 7;
+var y = userAuthenticated || "Invalid user";
+var z = !loggedIn
+```
+
+In x, 22 and 7 are both expressions.  You can test this by putting parenthesis around them.
+
+```
+var x = 10 + (22) - (7);
+```
+
+Each expression can be grouped with a set of parenthesis without changing the actual value.
+
+```
+var x = (10 + ((22) - (7)));
+```
+
+For y and z:
+```
+var y = ((userAuthenticated) || ("Invalid user"));
+var z = !(logged);
+```
+
+Statements are the evaluation of all the expressions, terminated by the semi-colon or a new line if you are using Automatic Semi-Colon Insertion.
+
+
 ## Dealing with Types
 
-Python uses what's known as `duck-typing` to understand a value passed in.  Unlike Java, that requires an explicit declaration:
+Note that this is pseudo-code to demonstrate a point.  Python uses what's known as `duck-typing` to understand a value passed in.  Unlike Java, that requires an explicit declaration:
 
     public String function getGraduationDateToString(Calendar yourGraduationDate)
     {
@@ -16,16 +47,18 @@ Python uses what's known as `duck-typing` to understand a value passed in.  Unli
       return gradString;
     }
 
+Notice we have to specify that we want the method to return a String, and that we expect an object of type calendar as an argument, and our inner variable of gradString has to be specified that it too will be a string.
+
 Python will not check what type of object gets passed in.  There are ways to create `Interfaces` in Python, but they are generally rare.  Equivalent Python:
 
-    def get_graduation_date_to_string(yourGraduation)
-      return str(yourGraduation.YEAR)
+    def get_graduation_date_to_string(yourGraduation):
+        return str(yourGraduation.YEAR)
 
 So long as a method exists or property exists, Python will invoke it.  The term `duck-typing` means so long as whatever is passed to the method has the method or property the function is invoking, Python will not raise an error.
 
 We do not have to specify that we are expecting an object of type Calendar, but we do have to explicitly cast it as a string using `str` to get the correct value back.
 
-If there is no `YEAR` property on the object passed in, Python will throw an error, or raise an exception to use Python's terminology.
+If there is no `YEAR` property on the object passed in, Python will throw an error, or raise an exception to use Python's terminology.  The exception will show `object has no attribute 'YEAR'`
 
 The equivalent JavaScript:
 
