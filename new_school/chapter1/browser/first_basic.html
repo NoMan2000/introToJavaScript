@@ -20,12 +20,25 @@
                             Booleans Test
                         </a>
                     </div>
-                    <section class="">
-                        <form action="#">
-                            <input type="checkbox" value="booleans">
-                        </form>
-                    </section>
                 </div>
+                <section class="row mt-5">
+                    <h2 class="heading">Select a list of tests to run</h2>
+                    <form class="form" action="#">
+                        <div class="col-12">
+                            <div class="mb-3 form-check">
+                                <input class="form-check-input" type="checkbox" id="booleans" value="booleans">
+                                <label class="form-check-label" for="booleans">Booleans</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="number-and-math" class="form-check-input">
+                                <label for="number-and-math" class="form-check-label">Number and Math objects</label>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <input type="submit" class="btn btn-submit btn-primary">
+                        </div>
+                    </form>
+                </section>
                 <div class="row mt-5">
                     <section id="inner" class="col-12">
 
@@ -35,5 +48,18 @@
         </main>
         <script src="./__test__/common.js"></script>
         <script src="./__test__/booleans.js"></script>
+        <script>
+            (function () {
+                "use strict";
+                var form = document.getElementsByTagName('form')[0];
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    console.log('we did it');
+                    var checkboxes = Array.from(form.querySelectorAll('input[type="checkbox"]'));
+                    console.dir(form);
+                    console.log(checkboxes);
+                });
+            })();
+        </script>
     </body>
 </html>

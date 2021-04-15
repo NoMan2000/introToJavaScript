@@ -47,6 +47,19 @@
         assert(valueOne === valueTwo);
     }
     assert.ok = assert;
+    assert.throws = function (errorFunc, message) {
+        var didNotFail = false;
+        try {
+            errorFunc();
+            didNotFail = true;
+        } catch (err) {
+            didNotFail = false;
+            assert(true);
+        }
+        if (didNotFail) {
+            assert(false);
+        }
+    }
 
     append.classList.add('col-12');
 

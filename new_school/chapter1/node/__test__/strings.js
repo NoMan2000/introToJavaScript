@@ -97,7 +97,7 @@ run(getIsMain(), describe("How Strings work and the methods available", function
      */
     it("Can trim leading whitespace", function () {
         var whitespace = " This is an example of unnecessary whitespace ";
-        expect(whitespace.trim()).toEqual("This is an example of unnecessary whitespace");
+        assert.strictEqual(whitespace.trim(), "This is an example of unnecessary whitespace");
     });
 
     /**
@@ -106,7 +106,7 @@ run(getIsMain(), describe("How Strings work and the methods available", function
      */
     it("Can replace a string", function () {
         var newString = "cat".replace("cat", "dog");
-        expect(newString).toEqual("dog");
+        assert.strictEqual(newString, "dog");
     });
 
     it("Can do multi-line strings", function () {
@@ -119,7 +119,7 @@ run(getIsMain(), describe("How Strings work and the methods available", function
              * It is not recommended to do this.
              * The second string is very fragile, adding one space will make the test fail.
              */
-        expect(string).toEqual("One and two three and four");
-        expect(secondString).toEqual("One and two                 three and four");
+        assert.strictEqual(string, "One and two three and four");
+        assert.strictEqual(secondString, "One and two                 three and four");
     });
 }));
