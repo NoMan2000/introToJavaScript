@@ -1,5 +1,5 @@
 {
-  "name": "JavaScriptTests",
+  "name": "javascript-tests",
   "version": "1.0.0",
   "description": "An Introduction to JavaScript Using Behavior Driven-Design",
   "main": "app.js",
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git@github.com:NoMan2000/introToJavaScript.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
 
   },

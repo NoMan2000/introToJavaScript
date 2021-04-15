@@ -1,14 +1,14 @@
 # JavaScript Objects
 
 JavaScript is composed of two types of objects.
-  
-  1. Built-in objects are shared across all versions of JavaScript like Object, Array, Boolean, Number, RegExp, etc.
-  
-  2. The Host Objects are unique to each environment JavaScript is running within.  In the case of the browser, this is window, document, console, etc.  Node and Electron have different host objects than the browser.
-  
-  Since this is meant to demonstrate JavaScript at its most common and simplest, we will be using the Browser to demonstrate JavaScript.  
 
-## Variables.  
+  1. Built-in objects are shared across all versions of JavaScript like Object, Array, Boolean, Number, RegExp, etc.
+
+  2. The Host Objects are unique to each environment JavaScript is running within.  In the case of the browser, this is window, document, console, etc.  Node and Electron have different host objects than the browser.
+
+  Since this is meant to demonstrate JavaScript at its most common and simplest, we will be using the Browser to demonstrate JavaScript.
+
+## Variables
 
 * A variable is literally something which can change or vary.  JavaScript in ES5 supports var as the keyword for declaring a variable.  In ES6, let is supported for block-scoped variables and const is supported for constants.
 * Variables cannot begin with a number, but can use one anywhere else.
@@ -30,12 +30,12 @@ JavaScript is composed of two types of objects.
 
 ## Objects
 
-- Objects are key-value stores.  The key is the name used to access a value.  The value is what is stored.
-- Properties of an object are values.  Methods of an object are functions.
-- Object keys can be accessed with one of two notations, the dot notation or the square bracket notation.
-- The dot notation is more commonly used, but it can only access string properties.
- 
-		 object.dotnotation
-		 object[squareNotation]
-		 
-- The square notation can access dynamic properties or properties with non-standard names.  It is highly recommended that you do not attempt to create non-standard variable names.
+* Objects are key-value stores.  The key is the name used to access a value.  The value is what is stored.
+* Properties of an object are values.  Methods of an object are functions.
+* Object keys can be accessed with one of two notations, the dot notation or the square bracket notation.
+* The dot notation is more commonly used, but it can only access string properties.
+
+   object.dotnotation
+   object[squareNotation]
+
+* The square notation can access dynamic properties or properties with non-standard names.  It is highly recommended that you do not attempt to create non-standard variable names.
