@@ -12,7 +12,7 @@
  */
 function describe(description, func) {
     console.info("\x1b[32m", '-'.repeat(40));
-    console.group("\x1b[37m", description, '\r\n');
+    console.group("\x1b[37m", description);
     counter += 1;
     // console.info("\x1b[36m", 'Begin describe: ' + description);
     try {
@@ -35,7 +35,7 @@ function describe(description, func) {
  */
 function it(description, func) {
     assertions += 1;
-    console.group("\x1b[37m", description + ':', '\r\n');
+    console.group("\x1b[37m", description + ':');
     console.info("\x1b[36m", '-'.repeat(40));
     console.info("\x1b[36m", 'Begin it: ' + description);
     try {
@@ -43,7 +43,7 @@ function it(description, func) {
         passed += 1;
         console.info("\x1b[32m", 'Passed it: ' + description);
         console.info("\x1b[36m", '-'.repeat(40) + '\r\n');
-        console.info('-'.repeat(40) + '\r\n');
+        // console.info('-'.repeat(40) + '\r\n');
     } catch (err) {
         failed += 1;
         console.info("\x1b[31m", 'Failed it: ' + description + ' failed.');

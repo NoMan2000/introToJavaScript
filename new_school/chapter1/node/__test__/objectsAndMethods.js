@@ -17,10 +17,10 @@ var getIsMain = function () {
 
 run(getIsMain(), describe("A demonstration of how methods and properties work.", function() {
 
-    describe("This is a basic demonstration of creating variables", function(){
+    describe("This is a basic demonstration of creating variables", function() {
         it("Can create a basic object", function createBasicObject() {
             var obj = {};
-            assert.ok(tyepof obj !== 'undefined');
+            assert.ok(typeof obj !== 'undefined');
             assert.ok(obj);
         });
 
@@ -57,7 +57,7 @@ run(getIsMain(), describe("A demonstration of how methods and properties work.",
             nameThree = obj.sayName('john', 'doe');
             assert.strictEqual(nameOne, "Hello Ryan Michael");
             assert.strictEqual(nameTwo, "Hello Bill Michael");
-            assert.strictEqual(nameThree), "Hello john doe");
+            assert.strictEqual(nameThree, "Hello john doe");
         });
 
         /**
@@ -73,7 +73,7 @@ run(getIsMain(), describe("A demonstration of how methods and properties work.",
             },
                 accessFirstName = 'firstName';
             assert.strictEqual(obj['firstName'], 'Brad');
-            expect(obj[accessFirstName]).toEqual('Brad');
+            assert.strictEqual(obj[accessFirstName], 'Brad');
 
         });
     });
@@ -90,9 +90,9 @@ run(getIsMain(), describe("A demonstration of how methods and properties work.",
                     return "Hello " + this.firstName + " " + this.lastName;
                 }
             };
-            expect(obj.greeting()).toEqual("Hello John Doe");
+            assert.strictEqual(obj.greeting(), "Hello John Doe");
             obj.firstName = "Bill";
-            expect(obj.greeting()).toEqual("Hello Bill Doe");
+            assert.strictEqual(obj.greeting(), "Hello Bill Doe");
         });
         /**
          * This is the more complex way to create an object.  You first create a function, and then the
@@ -113,9 +113,9 @@ run(getIsMain(), describe("A demonstration of how methods and properties work.",
                 }
             };
             var johnDoe = new PersonCreator();
-            expect(johnDoe.greeting()).toEqual("Hello John Doe");
+            assert.strictEqual(johnDoe.greeting(), "Hello John Doe");
             johnDoe.firstName = "Bill";
-            expect(johnDoe.greeting()).toEqual("Hello Bill Doe");
+            assert.strictEqual(johnDoe.greeting(), "Hello Bill Doe");
         });
         /**
          * This is the most verbose way to create a new object.  The advantage is you can define special properties.
@@ -137,10 +137,10 @@ run(getIsMain(), describe("A demonstration of how methods and properties work.",
                     }
                 }
             });
-            expect(johnDoe.greeting()).toEqual("Hello John Doe");
+            assert.strictEqual(johnDoe.greeting(), "Hello John Doe");
             johnDoe.firstName = "Bill";
-            expect(johnDoe.greeting()).toEqual("Hello Bill Doe");
+            assert.strictEqual(johnDoe.greeting(), "Hello Bill Doe");
 
         });
     });
-});
+}));
