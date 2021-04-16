@@ -46,6 +46,49 @@
     assert.strictEqual = function(valueOne, valueTwo) {
         assert(valueOne === valueTwo);
     }
+
+    function deepEqual(object1, object2) {
+        var isObjOne = isObject(object1);
+        var isObjTwo = isObject(object2);
+
+        if ((!isObjOne || !isObjTwo) && (object1 !== object2)) {
+            return false;
+        } else if (!isObjOne || !isObjTwo) {
+            return object1 === object2;
+        }
+
+        const keys1 = isObjOne && Object.keys(object1);
+        const keys2 = isObjTwo && Object.keys(object2);
+
+        if (isObjOne && isObjTwo && keys1.length !== keys2.length) {
+          return false;
+        }
+
+        for (const key of keys1) {
+          const val1 = object1[key];
+          const val2 = object2[key];
+          const areObjects = isObject(val1) && isObject(val2);
+          if (
+            areObjects && !deepEqual(val1, val2) ||
+            !areObjects && val1 !== val2
+          ) {
+            return false;
+          }
+        }
+        return true;
+    }
+
+    assert.deepStrictEqual = function deepStrictEqual(object1, object2) {
+        assert(deepEqual(object1, object2));
+    }
+
+    assert.notDeepStrictEqual = function notDeepStrictEqual(object1, object2) {
+        assert(!deepEqual(object1, object2));
+    }
+
+    assert.notStrictEqual = function(valueOne, valueTwo) {
+        assert(valueOne !== valueTwo);
+    }
     assert.ok = assert;
     assert.throws = function (errorFunc, message) {
         var didNotFail = false;
@@ -61,7 +104,17 @@
         }
     }
 
+    function isObject(object) {
+        return object != null && typeof object === 'object';
+    }
+
+
     append.classList.add('col-12');
+
+    function clear() {
+        var inner = document.querySelector('#inner');
+        inner.innerHTML = '';
+    }
 
     inner.innerHTML = '';
 
@@ -176,6 +229,7 @@
         run,
         assert,
         browserRun,
-        runners
+        runners,
+        clear
     }
 })(globalThis, typeof document !== 'undefined' ? document : {});

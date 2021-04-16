@@ -1,0 +1,12 @@
+{
+  "name": "@browser/chapter3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "scripts": {
+  },
+  "devDependencies": {
+  }
+}

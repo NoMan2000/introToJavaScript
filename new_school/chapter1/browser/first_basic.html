@@ -14,10 +14,31 @@
                     Tests for Chapter 1
                 </h1>
                 <div class="row runner">
-                    <div class="list-group">
+                    <div class="list-group w-100 mt-4 mb-4">
                         <!-- This is really old school and not often done. -->
-                        <a href="/test_one" class="list-group-item" onclick="window.globalRunner.browserRun('booleans');return false;">
+                        <a href="/test_all" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.runAll();return false;">
+                            Run All
+                        </a>
+                        <a href="/test_one" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.browserRun('booleans');return false;">
                             Booleans Test
+                        </a>
+                        <a href="/test_two" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.browserRun('number-and-math');return false;">
+                            Numbers and Math Test
+                        </a>
+                        <a href="/test_three" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.browserRun('objects-and-methods');return false;">
+                            Objects and Methods
+                        </a>
+                        <a href="/test_four" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.browserRun('primitives');return false;">
+                            Primitives
+                        </a>
+                        <a href="/test_five" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.browserRun('strings');return false;">
+                            Strings
+                        </a>
+                        <a href="/test_six" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.browserRun('undefined-or-null');return false;">
+                            Undefined or null
+                        </a>
+                        <a href="/test_seven" class="list-group-item" onclick="window.globalRunner.clear();window.globalRunner.browserRun('variables');return false;">
+                            Variables
                         </a>
                     </div>
                 </div>
@@ -33,6 +54,26 @@
                                 <input type="checkbox" id="number-and-math" class="form-check-input">
                                 <label for="number-and-math" class="form-check-label">Number and Math objects</label>
                             </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="objects-and-methods" class="form-check-input">
+                                <label for="objects-and-methods" class="form-check-label">Objects and Methods</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="primitives" class="form-check-input">
+                                <label for="primitives" class="form-check-label">Primitives</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="strings" class="form-check-input">
+                                <label for="strings" class="form-check-label">Strings</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="undefined-or-null" class="form-check-input">
+                                <label for="undefined-or-null" class="form-check-label">Undefined or null</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="variables" class="form-check-input">
+                                <label for="variables" class="form-check-label">Variables</label>
+                            </div>
                         </div>
                         <div class="col-12 mt-2">
                             <input type="submit" class="btn btn-submit btn-primary">
@@ -46,19 +87,40 @@
                 </div>
             </div>
         </main>
+        <!-- Common is not async because it *must* load before all the other modules. -->
         <script src="./__test__/common.js"></script>
-        <script src="./__test__/booleans.js"></script>
+        <!-- Everything else, we do not care about. -->
+        <script async defer src="./__test__/booleans.js"></script>
+        <script async defer src="./__test__/numberAndMath.js"></script>
+        <script async defer src="./__test__/objectsAndMethods.js"></script>
+        <script async defer src="./__test__/primitives.js"></script>
+        <script async defer src="./__test__/strings.js"></script>
+        <script async defer src="./__test__/undefinedOrNull.js"></script>
+        <script async defer src="./__test__/variables.js"></script>
         <script>
             (function () {
                 "use strict";
                 var form = document.getElementsByTagName('form')[0];
                 form.addEventListener('submit', function (e) {
                     e.preventDefault();
-                    console.log('we did it');
+                    globalThis.globalRunner.clear();
                     var checkboxes = Array.from(form.querySelectorAll('input[type="checkbox"]'));
-                    console.dir(form);
-                    console.log(checkboxes);
+                    checkboxes.filter(c => c.checked).map(c => c.id).forEach(id => {
+                        window.globalRunner.browserRun(id);
+                    });
                 });
+                globalThis.globalRunner.runAll = function () {
+                    debugger;
+                    var allRuns = Array.from(document.querySelectorAll('input[type="checkbox"]')).map(c => c.id);
+                    allRuns.forEach((id) => {
+                        if (!globalThis.globalRunner.runners[id]) {
+                            console.error('no id of ' + id + ' is present');
+                        } else {
+                            globalThis.globalRunner.browserRun(id);
+                        }
+                    });
+                    return false;
+                }
             })();
         </script>
     </body>
